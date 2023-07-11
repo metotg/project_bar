@@ -16,7 +16,7 @@ public class Main {
         int choice;
         do {
             displayMenu();
-            choice = scanner.nextInt();
+            choice = Integer.parseInt(scanner.nextLine().trim());  // Read the entire line and parse as an integer
             switch (choice) {
                 case 1:
                     listAllBars();
@@ -37,19 +37,29 @@ public class Main {
     }
 
     private static void initializeBars() {
-        barNames.add("Bar 1");
+        barNames.add("Point BAR");
         barLocations.add(10);
         barOpeningHours.add("10:00 - 02:00");
 
-        barNames.add("Bar 2");
+        barNames.add("Dream point BAR");
         barLocations.add(25);
         barOpeningHours.add("12:00 - 04:00");
 
-        barNames.add("Bar 3");
+        barNames.add("Akcent caffe aperitif ");
         barLocations.add(50);
-        barOpeningHours.add("18:00 - 03:00");
+        barOpeningHours.add("07:00 - 11:00");
 
-        // Add more bars here
+        barNames.add("NO Mercy Piano BAR ");
+        barLocations.add(60);
+        barOpeningHours.add("22:00 - 05:00");
+
+        barNames.add("Dance Club Blue Magic ");
+        barLocations.add(75);
+        barOpeningHours.add("22:00 - 05:00");
+
+        barNames.add("Club Energy ");
+        barLocations.add(90);
+        barOpeningHours.add("07:00 - 23:00");
     }
 
     private static void getUserLocation() {
@@ -139,5 +149,10 @@ public class Main {
         for (int i = 0; i < barNames.size(); i++) {
             System.out.printf("%d. %s\n", i + 1, barNames.get(i));
         }
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Press Enter to continue...");
+        scanner.nextLine();
     }
+
 }
