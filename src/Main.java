@@ -97,6 +97,7 @@ public class Main {
 
     private static void listOpenBars() {
         List<Integer> openBarIndexes = new ArrayList<>();
+
         for (int i = 0; i < barNames.size(); i++) {
             String openingHours = barOpeningHours.get(i);
             String[] hours = openingHours.split(" - ");
@@ -138,7 +139,8 @@ public class Main {
             if (i == userLocation) {
                 mapBuilder.append("X");
             } else if (barLocations.contains(i)) {
-                mapBuilder.append("#");
+                int index = barLocations.indexOf(i);
+                mapBuilder.append(barNames.get(index));
             } else {
                 mapBuilder.append("-");
             }
@@ -155,5 +157,6 @@ public class Main {
         System.out.println("Press Enter to continue...");
         scanner.nextLine();
     }
-
 }
+
+
