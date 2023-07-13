@@ -16,7 +16,7 @@ public class Main {
         int choice;
         do {
             displayMenu();
-            choice = Integer.parseInt(scanner.nextLine().trim());  // Read the entire line and parse as an integer
+            choice = Integer.parseInt(scanner.nextLine().trim());
             switch (choice) {
                 case 1:
                     listAllBars();
@@ -64,6 +64,7 @@ public class Main {
 
     private static void getUserLocation() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to BAR application");
         System.out.println("Enter your location (1-100):");
         userLocation = scanner.nextInt();
     }
@@ -105,7 +106,7 @@ public class Main {
             Calendar now = Calendar.getInstance();
             int currentHour = now.get(Calendar.HOUR_OF_DAY);
             int currentMinute = now.get(Calendar.MINUTE);
-
+            System.out.println("Current time: " + currentHour + ":" + currentMinute);
             String[] openingHourSplit = openingTime.split(":");
             int openingHour = Integer.parseInt(openingHourSplit[0]);
             int openingMinute = Integer.parseInt(openingHourSplit[1]);
