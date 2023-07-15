@@ -76,22 +76,23 @@ public class Main {
         System.out.println("3. MAP");
         System.out.println("4. Exit");
     }
-
     private static void listAllBars() {
         List<Integer> sortedIndexes = new ArrayList<>();
         for (int i = 0; i < barNames.size(); i++) {
             sortedIndexes.add(i);
         }
 
-        sortedIndexes.sort((index1, index2) ->
-                Integer.compare(Math.abs(barLocations.get(index1) - userLocation),
-                        Math.abs(barLocations.get(index2) - userLocation)));
+        sortedIndexes.sort(Comparator.comparingInt(index ->
+                Math.abs(barLocations.get(index) - userLocation)));
 
         System.out.println("Bars ordered from closest to farthest:");
         for (int i = 0; i < sortedIndexes.size(); i++) {
             int index = sortedIndexes.get(i);
+            String barName = barNames.get(index);
+            String openingHours = barOpeningHours.get(index);
             int distance = Math.abs(barLocations.get(index) - userLocation);
-            System.out.printf("%d. %s (%s) - %dm\n", i + 1, barNames.get(index), barOpeningHours.get(index), distance);
+
+            System.out.printf("%d. %s (%s) - %dm\n", i + 1, barName, openingHours, distance);
         }
     }
 
